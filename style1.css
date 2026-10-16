@@ -1,0 +1,19 @@
+
+h1{
+    
+   div{background-size:cover;
+        height:300px;
+        text-align:center;
+        background-image:url("https://img.magnific.com/free-photo/closeup-shot-beautiful-butterfly-with-interesting-textures-orange-petaled-flower_181624-7640.jpg?semt=ais_hybrid&w=740&q=80");
+   }font-size:20px;
+    background-repeat:no-repeat;
+}
+
+h3{ 
+    color:#0000FF;
+    font-size:20px;
+
+}
+p{
+   color:rgba(255,0,0,1);
+}

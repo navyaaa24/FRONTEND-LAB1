@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> .box {
+    display: block;
+    width: 100px;
+    height: 50px;
+    border: 2px solid pink;
+}
+p { display: block; }
+.text{
+    color: aqua;
+}#main{
+    color: red;
+}
+    p{
+      color:blue;  
+    } @media screen and (max-width: 600px) {
+        p {
+            color: red;
+        }
+    }
+    
+        /* font-family:Arial;
+        font-size:20px;
+        font-weight:bold;
+        font-style:italic; 
+    } */
+    .tooltip{
+        position:relative;
+    }.tooltiptext{
+        display:none;
+    }.tooltip:hover .tooltiptext{
+        display:block;
+    }
+    /* p{ */
+        /* text-align:center;
+        text-decoration:underline;
+        text-transform:uppercase;
+        letter-spacing:2px;
+        line-height:2px; */
+    /* } p{ */
+           @keyframes changeColor{
+             0% {
+                color: red;
+            }
+
+            50% {
+                color: blue;
+            }
+
+            100% {
+                color: green;
+            }
+        }
+
+        p {
+            font-size: 30px;
+            animation: changeColor 3s infinite alternate;
+            animation-delay: 5s;
+        }
+</style>
+<body>
+    <table border="1"><tr><th colspan="5">COUSINS INFO</th></tr><tr><th colspan="3">FAMILY INFO</th></tr>
+       <tr><th>Name</th>
+    <th>Age</th>
+    <th>City</th>
+    <th>Food</th>
+    <th>Clothes</th>
+    </tr>
+    <tr><td>Navya</td>
+    <td>20</td>
+    <td rowspan="2">Delhi</td>
+    <td>Pizza</td>
+    <td>Jeans</td>
+    </tr>
+    <tr><td>Manya</td>
+    <td>22</td>
+    <!-- <td>Mumbai</td> -->
+    <td>Burger</td>
+    <td>T-Shirt</td>
+    </tr><td>Akshita</td>
+    <td>21</td>
+    <td>Agra</td>
+    <td>Sandwich</td>
+    <td>Skirt</td>
+    </tr>
+    <tr><td>Sanskar</td>
+    <td>23</td>
+    <td>Chennai</td>
+    <td>Idli</td>
+    <td>Dress</td>
+    </tr>
+    <td>Pranjal</td>
+    <td>29</td>
+    <td>Patna</td>
+    <td>Chowmein</td>
+    <td>Shirt</td>
+    </table>
+    <form>
+        <h1> Student Registration Form</h1>
+        <label>Name:</label>
+        <input type="text"><br>
+        <label>Email:</label>
+        <input type="email"><br>
+        <label>Age:</label>
+        <input type="number"><br>
+        <input type="radio" name="gender">Male
+        <input type="radio" name="gender">Female<br>
+        <input type="checkbox" name="Skills">HTML
+        <input type="checkbox" name="Skills">CSS
+        <input type="checkbox" name="Skills">JavaScript<br>
+        <label>Course:</label>
+        <select>
+            <option>B.TECH</option>
+            <option>M.TECH</option>
+            <option>BCA</option>
+        </select>
+        <label>Address:</label>
+        <textarea></textarea><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+    </ul>
+    <ol><li>Boil Water</li>
+    <li>Add Sugar</li>
+    <li>Add tea powder</li>
+    <li>Heat on low flame</li>
+    </ol>
+    <dl><dt>HTML</dt>
+    <dd>Hypertext Markup Language</dd>
+    <dt>CSS</dt>
+    <dd>Cascading Style Sheet</dd>
+    <dt>JS</dt>
+    <dd>JavaScript</dd>
+    </dl>
+    <a href="https://www.google.com/?olud=en">Visit Google</a>
+    <a href="https://www.youtube.com/">Visit YouTube</a>
+    <a href="https://www.gla.ac.in/">Visit GLA University</a><br>
+  <center>  <img src="https://www.britannica.com/cdn/23/256823-101-11E00D74/images/image-2.jpg"alt="Peacock"
+    width="500" height="300"></center>
+    <audio src="song.mp3" controls></audio>
+    <video src="video.mp4"  controls width="500" height="300"></video>
+    <div><h2>My Website</h2>
+    <p>Welcome to my website!</p>
+    </div>
+    <p>I Love<span> HTML</span></p>
+    <header>My Portfolio</header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+    </nav>
+    <main><h1>Hello, Everyone!</h1></main>
+    <footer>Thankyou for listening!</footer>
+    <h1 id="heading">My Website</h1>
+    <!-- <p class="paragraph">Welcome to my website!</p>
+    <p class="paragraph">This is a sample paragraph.</p> -->
+    <div class="tooltip">Hover Me
+        <span class="tooltiptext">This is a tooltip</span>
+    </div>
+    <!-- <p>This is a typography practice.</p> -->
+     <p>This is an animation practice.</p>
+     <h1 id="main">Hello</h1>
+<p class="text">Welcome</p>
+<span class="box">Hello</span>
+    <span class="box">World</span>
+</html>

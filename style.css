@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+.cartoon img {
+    width: 120px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: blue;
+    margin: 0 auto;}
+
+.cartoon-container {
+
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 50px 20px;
+    width: 100%;
+}
+
+.cartoon {
+    text-align: center;
+}
+
+.cartoon img {
+    width: 120px;
+    height: 140px;
+    border: 3px solid blue;
+}
+
+.cartoon p {
+    font-size: 16px;
+    margin-top: 20px;
+}

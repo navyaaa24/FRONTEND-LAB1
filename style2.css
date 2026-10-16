@@ -1,0 +1,123 @@
+@media(max-width:600px){
+h3{color:rgb(0,255,100);
+background-color:red !important;
+/* border-style:solid;
+border-width:5px;
+border-color:saddlebrown;
+border-radius:10px;
+padding:40px 20px 30px 40px;
+width:10%;
+height:100px;
+text-shadow:5px 5px 2px black;
+box-shadow:10px 10px 5px black;
+outline-style:solid;
+outline-width:5px;
+outline-color:blue; */
+/* animation-name:example;
+animation-duration:4s;
+animation-iteration-count:infinite;
+animation-direction:alternate;
+animation-timing-function:ease-in-out;
+animation-delay:1s;
+animation-fill-mode:forwards; */
+/* user-select:all;
+box-sizing:content-box;
+filter:blur(2px); */
+/* filter:brightness(150%); */
+/* filter:grayscale(100%); */
+/* filter:sepia(100%); */
+/* filter:contrast(200%); */
+/* filter:opacity(50%); */
+/* filter:saturate(200%); */
+/* filter:invert(100%); */
+/* filter:hue-rotate(90deg); */
+/* filter:drop-shadow(10px 10px 5px red); */
+}}
+h2{color:rgb(255,255,100);
+background-color:maroon;
+transform:translateX(500px);
+/* transform:rotate(20deg); */
+transform:scale(1.0);
+transform:skew(20deg);
+font-size:30px;
+font-family:Arial;
+font-weight:normal;
+font-style:italic;
+text-align:center;
+text-decoration:underline;
+margin:50px;
+width:900px;
+height:100px;
+padding:20px;
+border: 5px solid black;
+}
+body {
+    background-color: lightblue;
+ background-image:linear-gradient(rgba(0,255,0,0.2),rgba(0,0,0,0.7)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLzOsXAGnBHRlP3m5OClYHGLxQHkqyJQGVI3Vxk3d6aA&s"); 
+background-repeat: no-repeat ; 
+/* background-position:center; */
+background-size:cover;
+/* background-size:contain; */
+ /* background:radial-gradient(green,yellow); */ 
+}button{
+    background-color:blue;
+    color:white;
+    padding:10px 20px;
+    border-radius:5px;
+    border:none;
+    cursor:pointer;
+    transition:8s;
+    /* transition:background-color 3s; */
+    transition:all 3s;
+}button:hover{
+    background-color:green;
+    color:yellow;
+    transform:scale(1.5);
+}
+    @keyframes example {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(700px);
+    }
+}textarea{
+    resize:both;
+}
+nav ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;}
+nav li{
+    margin-right:20px;
+    background-color:purple;
+    display:inline;
+    color:white;
+    padding:10px;
+}
+nav{
+    background-color:purple;   
+}nav li:hover{
+    background-color:white;}
+    nav a{
+        text-decoration:none;
+        transition:0.5s;
+    }
+    /* div>h3{
+        color:blue;
+    } */
+     h3~p{
+        color:green;
+     }
+     h2:hover{
+        color:blue;
+     }
+    input:focus {
+    background-color: lightgreen;
+}
+button:active {
+    background-color: red !important;
+}
+
+    

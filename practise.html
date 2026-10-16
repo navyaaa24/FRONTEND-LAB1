@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    .boxes {
+        display:flex;
+        gap:20px;
+       flex-wrap:wrap;
+       width:400px;
+       justify-content:center;
+       /* background-image:url("https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg"); */
+    }.boxes div{
+        border:2px solid black;
+        padding:20px;
+        /* background-color:pink; */
+        /* background-image: url("https://picsum.photos/200"); */
+         /* background-image:url("https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg");  */
+    background-repeat:repeat-y;
+    /* background-size: contain; */
+    background-position:right bottom;
+    background:conic-gradient(red,blue,green,yellow);
+        }
+    button{
+        position:fixed;
+        bottom:100px;
+        right:20px;
+    }
+    h1{
+        color:hsl(120,100%,50%);
+    }
+    </style>
+</head>
+<body>
+    <h1>My Website</h1>
+    <div class="boxes">
+        <div>BOX1</div>
+        <div>BOX2</div>
+        <div>BOX3</div>
+        <div>BOX4</div>
+    </div>
+<button>BUTTON</button>
+</body>
+</html>

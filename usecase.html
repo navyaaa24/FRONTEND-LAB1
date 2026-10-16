@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usecase</title>
+</head>
+<body>
+    <script>
+        let date=prompt("Enter Date:");
+    date=Number(date);
+        if(date>=11 && date<19){
+            alert("You are eligible.");
+            // document.write("Your age is: " + age + "<br");
+            // document.write("You are eligible to vote");
+        }else{
+            alert("You are not eligible");
+            // document.write("Your age is: " + age + "<br");
+            // document.write("You are  not eligible to vote");
+        }
+        let result=date>=11 && date<19? "Eligible" : "Not Eligible";
+         document.write("" + result);
+    </script>
+</body>
+</html>

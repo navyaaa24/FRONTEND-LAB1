@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}nav {
+    position: absolute;
+    right: 20px;
+}
+
+.layout {
+    display: flex;
+}
+
+aside {
+    background-color: #222;
+    width: 200px;
+    min-height: calc(100vh - 80px);
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+aside a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+main {
+    padding: 20px;
+}
