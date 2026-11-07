@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 7 - DOM Manipulation</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 10px;
+            width: 65%;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        li {
+            margin: 10px;
+            padding: 10px;
+            background: #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete {
+            background-color: red;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .thumbnails img {
+            width: 30%;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .thumbnails img:hover {
+            border-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Task 7 - DOM Manipulation</h1>
+
+    <!-- TO-DO LIST -->
+
+    <div class="container">
+
+        <h2>1. To-Do List</h2>
+
+        <input type="text" id="taskInput"
+        placeholder="Enter your task">
+
+        <button id="addBtn">Add Task</button>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+
+    <!-- IMAGE GALLERY -->
+
+    <div class="container">
+
+        <h2>2. Image Gallery</h2>
+
+        <img id="mainImage"
+        class="main-image"
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"
+        alt="Main Image">
+
+        <div class="thumbnails">
+
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"
+            alt="Nature">
+
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800"
+            alt="Mountain">
+
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800"
+            alt="Beach">
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // PROGRAM 1: TO-DO LIST
+
+        let input = document.getElementById("taskInput");
+        let addBtn = document.getElementById("addBtn");
+        let taskList = document.getElementById("taskList");
+
+        // Add task
+        addBtn.addEventListener("click", function() {
+
+            let task = input.value.trim();
+
+            if (task === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+            let li = document.createElement("li");
+
+            let span = document.createElement("span");
+            span.textContent = task;
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Remove";
+            deleteBtn.className = "delete";
+
+            li.appendChild(span);
+            li.appendChild(deleteBtn);
+
+            taskList.appendChild(li);
+
+            input.value = "";
+
+        });
+
+        // Remove task
+        taskList.addEventListener("click", function(event) {
+
+            if (event.target.classList.contains("delete")) {
+
+                event.target.parentElement.remove();
+
+            }
+
+        });
+
+
+        // PROGRAM 2: IMAGE GALLERY
+
+        let mainImage = document.getElementById("mainImage");
+
+        let thumbnails = document.querySelectorAll(".thumbnails img");
+
+        thumbnails.forEach(function(image) {
+
+            image.addEventListener("click", function() {
+
+                mainImage.src = image.src;
+                mainImage.alt = image.alt;
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
