@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Calculator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #dbeafe, #e9d5ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            width: 500px;
+            background: #334155;
+            padding: 25px;
+            border: 3px solid #1e293b;
+            border-radius: 25px;
+        }
+
+        .display {
+            background: #f8fafc;
+            height: 150px;
+            border: 3px solid #94a3b8;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            padding: 20px;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #expression {
+            font-size: 25px;
+            color: #64748b;
+            min-height: 35px;
+        }
+
+        #result {
+            font-size: 50px;
+            color: #1e293b;
+            overflow-wrap: anywhere;
+        }
+
+        .clear-delete {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            height: 82px;
+            font-size: 27px;
+            border: none;
+            border-radius: 12px;
+            background: #e0e7ff;
+            color: #312e81;
+            cursor: pointer;
+            box-shadow: 0 3px 5px #1e293b55;
+        }
+
+        button:hover {
+            background: #c4b5fd;
+        }
+
+        .clear {
+            background: #fb7185;
+            color: white;
+        }
+
+        .delete {
+            background: #a78bfa;
+            color: white;
+        }
+
+        .clear, .delete {
+            height: 85px;
+            font-size: 23px;
+        }
+
+        .buttons button:nth-child(4n) {
+            background: #67e8f9;
+            color: #164e63;
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        @media (max-width: 550px) {
+            .calculator {
+                width: 95%;
+                padding: 15px;
+            }
+
+            button {
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+
+        <!-- Display -->
+        <div class="display">
+            <div id="expression"></div>
+            <div id="result">0</div>
+        </div>
+
+        <!-- Clear and Delete -->
+        <div class="clear-delete">
+            <button class="clear" onclick="clearAll()">CLEAR</button>
+            <button class="delete" onclick="deleteLast()">DELETE</button>
+        </div>
+
+        <!-- Calculator Buttons -->
+        <div class="buttons">
+
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('/')">÷</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('*')">×</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('-')">-</button>
+
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendValue('+')">+</button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let expression = "";
+
+        // Add numbers and operators
+        function appendValue(value) {
+
+            expression += value;
+
+            document.getElementById("expression").innerText = expression;
+            document.getElementById("result").innerText = expression;
+
+        }
+
+        // Clear everything
+        function clearAll() {
+
+            expression = "";
+
+            document.getElementById("expression").innerText = "";
+            document.getElementById("result").innerText = "0";
+
+        }
+
+        // Delete last character
+        function deleteLast() {
+
+            expression = expression.slice(0, -1);
+
+            document.getElementById("expression").innerText = expression;
+            document.getElementById("result").innerText = expression || "0";
+
+        }
+
+        // Calculate the result
+        function calculate() {
+
+            try {
+
+                if (expression === "") return;
+
+                let answer = Function('"use strict"; return (' + expression + ')')();
+
+                if (!Number.isFinite(answer)) {
+                    throw new Error("Invalid calculation");
+                }
+
+                document.getElementById("expression").innerText = expression + " =";
+                document.getElementById("result").innerText = answer;
+
+                expression = String(answer);
+
+            }
+
+            catch (error) {
+
+                document.getElementById("result").innerText = "Error";
+                expression = "";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
