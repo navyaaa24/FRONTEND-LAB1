@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 9 - Asynchronous Programming</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Asynchronous Programming Demo</h2>
+
+        <button onclick="fetchData()">Fetch Server Data</button>
+
+        <p id="result">Click the button to fetch data.</p>
+
+    </div>
+
+    <script>
+        function fetchData() {
+
+            document.getElementById("result").innerHTML =
+                "Fetching data from server...";
+
+            let serverData = new Promise((resolve, reject) => {
+
+                setTimeout(() => {
+
+                    resolve({
+                        id: 101,
+                        name: "Navya",
+                        course: "B.Tech CSE"
+                    });
+
+                }, 3000);
+
+            });
+
+            serverData.then((data) => {
+
+                document.getElementById("result").innerHTML =
+                    "Data Received Successfully!<br><br>" +
+                    "ID: " + data.id + "<br>" +
+                    "Name: " + data.name + "<br>" +
+                    "Course: " + data.course;
+
+            }).catch((error) => {
+
+                document.getElementById("result").innerHTML =
+                    "Error: " + error;
+
+            });
+        }
+    </script>
+
+</body>
+</html>
