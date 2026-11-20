@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Search</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background-color: white;
+            width: 80%;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        input {
+            padding: 10px;
+            width: 60%;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        .university {
+            background-color: #e8f0fe;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        a {
+            color: blue;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 10px;
+            }
+
+            input {
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>University Search Application</h1>
+
+        <p>Enter a country name to find universities.</p>
+
+        <input type="text" id="country"
+               placeholder="Enter country name">
+
+        <button onclick="searchUniversity()">
+            Search
+        </button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        async function searchUniversity() {
+
+            let country = document.getElementById("country").value.trim();
+
+            let result = document.getElementById("result");
+
+            if (country === "") {
+                result.innerHTML = "Please enter a country name.";
+                return;
+            }
+
+            result.innerHTML = "Loading universities...";
+
+            try {
+
+                let response = await fetch(
+                    "http://universities.hipolabs.com/search?country="
+                    + encodeURIComponent(country)
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data");
+                }
+
+                let data = await response.json();
+
+                result.innerHTML = "";
+
+                if (data.length === 0) {
+                    result.innerHTML = "No universities found.";
+                    return;
+                }
+
+                data.forEach(function(university) {
+
+                    let div = document.createElement("div");
+
+                    div.className = "university";
+
+                    let name = document.createElement("h3");
+                    name.textContent = university.name;
+
+                    div.appendChild(name);
+
+                    university.web_pages.forEach(function(website) {
+
+                        let link = document.createElement("a");
+
+                        link.href = website;
+                        link.textContent = website;
+                        link.target = "_blank";
+                        link.rel = "noopener noreferrer";
+
+                        div.appendChild(link);
+                        div.appendChild(document.createElement("br"));
+
+                    });
+
+                    result.appendChild(div);
+
+                });
+
+            }
+
+            catch (error) {
+
+                result.innerHTML =
+                    "Error fetching university data. Please try again.";
+
+                console.log(error);
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
